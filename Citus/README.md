@@ -1,1 +1,1 @@
-Create and drop Citus database.
+Citus extension related scripts
