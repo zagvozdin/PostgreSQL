@@ -1,8 +1,8 @@
 #!/bin/bash
-# ver 1.2
+# ver 1.3
 
 if [ $# -ne 2 ]; then
-    echo -e "\n\tUsage: $0 <coordinator ip> <dbname>"
+    echo -e "\n\tUsage: $0 <coordinator ip> <dbname>\n"
     exit 1
 fi
 
@@ -11,11 +11,6 @@ DBNAME=$2
 WLIST=worker.list
 USER=postgres
 PORT=5432
-
-if [ ! -f "$WLIST" ]; then
-    echo -e "\n\t$WLIST not found"
-    exit 1
-fi
 
 echo -e "\nDrop citus cluster, coordinator ip $COORDINATOR, port $PORT"
 echo -e "\nWorkers:"
