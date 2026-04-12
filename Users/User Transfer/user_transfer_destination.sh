@@ -6,7 +6,7 @@ LIST="users.txt"
 LISTDDL="users_ddl.txt"
 
 LISTdest="users_dest.txt"
-psql -U$USER -t -c"select usename from pg_user order by 1 asc" > $LISTdest
+psql -U$USER -t -c"select rolname from pg_roles where rolname not like 'pg_%' and rolname not in('postgres') order by 1 asc;" > $LISTdest
 
 n=0
 for U in `cat $LIST`; do

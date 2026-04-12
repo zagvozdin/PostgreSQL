@@ -4,7 +4,7 @@
 USER="postgres"
 LIST="users.txt"
 LISTDDL="users_ddl.txt"
-Q1="select usename from pg_user order by 1 asc;"
+Q1="select rolname from pg_roles where rolname not like 'pg_%' and rolname not in('postgres') order by 1 asc;"
 CMD1="pg_dumpall --globals-only -U$USER >$LISTDDL"
 
 psql -U$USER -t -c"$Q1" >$LIST;
